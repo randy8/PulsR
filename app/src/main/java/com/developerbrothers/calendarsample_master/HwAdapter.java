@@ -221,6 +221,8 @@ class HwAdapter extends BaseAdapter {
         if (jbarrays.length()!=0) {
             final Dialog dialogs = new Dialog(context);
             dialogs.setContentView(R.layout.dialog_inform);
+
+
             listTeachers = (ListView) dialogs.findViewById(R.id.list_teachers);
             ImageView imgCross = (ImageView) dialogs.findViewById(R.id.img_cross);
             listTeachers.setAdapter(new DialogAdaptorStudent(context, getMatchList(jbarrays + "")));
