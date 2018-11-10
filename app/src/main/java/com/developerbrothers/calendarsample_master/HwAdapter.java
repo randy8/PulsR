@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -222,6 +224,10 @@ class HwAdapter extends BaseAdapter {
             final Dialog dialogs = new Dialog(context);
             dialogs.setContentView(R.layout.dialog_inform);
 
+            WindowManager.LayoutParams wmlp = dialogs.getWindow().getAttributes();
+            wmlp.gravity = Gravity.TOP | Gravity.LEFT;
+            wmlp.x = 75;   //x position
+            wmlp.y = 1100;   //y position
 
             listTeachers = (ListView) dialogs.findViewById(R.id.list_teachers);
             ImageView imgCross = (ImageView) dialogs.findViewById(R.id.img_cross);
