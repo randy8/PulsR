@@ -2,26 +2,45 @@ package com.developerbrothers.calendarsample_master;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import static java.sql.DriverManager.println;
 
 public class MainActivity extends AppCompatActivity {
     public GregorianCalendar cal_month, cal_month_copy;
     private HwAdapter hwAdapter;
     private TextView tv_month;
+
+    Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.print("hello");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = mdformat.format(calendar.getTime());
+
+
+
+
+
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Diwali","Holiday","this is holiday"));
+        HomeCollection.date_collection_arr.add( new HomeCollection(strDate,"crap","Holiday","this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Holi","Holiday","this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Statehood Day","Holiday","this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-08-08" ,"Republic Unian","Holiday","this is holiday"));

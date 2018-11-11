@@ -25,11 +25,12 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Calendar;
 
 class HwAdapter extends BaseAdapter {
     private Activity context;
 
-    private java.util.Calendar month;
+    private Calendar month;
     public GregorianCalendar pmonth;
     /**
      * calendar instance for previous month for getting complete view
@@ -59,6 +60,7 @@ class HwAdapter extends BaseAdapter {
         selectedDate = (GregorianCalendar) monthCalendar.clone();
         this.context = context;
         month.set(GregorianCalendar.DAY_OF_MONTH, 1);
+
 
         this.items = new ArrayList<String>();
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
@@ -269,4 +271,6 @@ class HwAdapter extends BaseAdapter {
         return alCustom;
     }
 }
+
+
 
