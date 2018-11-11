@@ -16,6 +16,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.time.LocalDate;
+
+
 import static java.sql.DriverManager.println;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = mdformat.format(calendar.getTime());
 
-
+        String incrementedDate = addOneDay(strDate);
+        System.out.println(incrementedDate);
 
 
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
-        HomeCollection.date_collection_arr.add( new HomeCollection(strDate,"crap","Holiday","this is holiday"));
+        HomeCollection.date_collection_arr.add( new HomeCollection(strDate,"crap",incrementedDate,"this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Holi","Holiday","this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Statehood Day","Holiday","this is holiday"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2017-08-08" ,"Republic Unian","Holiday","this is holiday"));
@@ -123,5 +129,11 @@ public class MainActivity extends AppCompatActivity {
         hwAdapter.refreshDays();
         hwAdapter.notifyDataSetChanged();
         tv_month.setText(android.text.format.DateFormat.format("MMMM yyyy", cal_month));
+    }
+    public static String addOneDay(String date) {
+        return LocalDate
+                .parse(date)
+                .plusDays(1)
+                .toString();
     }
 }
