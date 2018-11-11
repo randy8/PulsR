@@ -40,23 +40,20 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = mdformat.format(calendar.getTime());
 
-        String incrementedDate = addOneDay(strDate);
-        System.out.println(incrementedDate);
-
+        // System.out.println(incrementedDate);
 
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
-        HomeCollection.date_collection_arr.add( new HomeCollection(strDate,"crap",incrementedDate,"this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Holi","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Statehood Day","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-08-08" ,"Republic Unian","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-09" ,"ABC","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-06-15" ,"demo","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-09-26" ,"weekly off","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2018-01-08" ,"Events","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2018-01-16" ,"Dasahara","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2018-02-09" ,"Christmas","Holiday","this is holiday"));
+       // String[] events = {"run", "10", "50"};
+        String incrementedDate = addOneDay(strDate);
+        HomeCollection.date_collection_arr.add(new HomeCollection(strDate, "30 mins", "3 miles", "300 cals"));
+        HomeCollection.date_collection_arr.add(new HomeCollection(incrementedDate, incrementedDate, incrementedDate, incrementedDate));
 
+
+//        for (int i = 0; i < events.length; i++) {
+//            HomeCollection.date_collection_arr.add(new HomeCollection(addOneDay(strDate), incrementedDate, events[i], incrementedDate));
+//
+//        }
 
 
         cal_month = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -133,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     public static String addOneDay(String date) {
         return LocalDate
                 .parse(date)
-                .plusDays(1)
+                .plusDays(3)
                 .toString();
     }
 }

@@ -215,9 +215,9 @@ class HwAdapter extends BaseAdapter {
         for (int j=0; j<len; j++){
             if (HomeCollection.date_collection_arr.get(j).date.equals(date)){
                 HashMap<String, String> maplist = new HashMap<String, String>();
-                maplist.put("hnames",HomeCollection.date_collection_arr.get(j).name);
-                maplist.put("hsubject",HomeCollection.date_collection_arr.get(j).subject);
-                maplist.put("descript",HomeCollection.date_collection_arr.get(j).description);
+                maplist.put("hnames",HomeCollection.date_collection_arr.get(j).dur);
+                maplist.put("hsubject",HomeCollection.date_collection_arr.get(j).dist);
+                maplist.put("descript",HomeCollection.date_collection_arr.get(j).cal);
                 JSONObject json1 = new JSONObject(maplist);
                 jbarrays.put(json1);
             }

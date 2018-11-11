@@ -51,11 +51,11 @@ class DialogAdaptorStudent extends BaseAdapter {
         TextView tvDuedate=(TextView)listViewItem.findViewById(R.id.tv_desc);
         TextView tvDescription=(TextView)listViewItem.findViewById(R.id.tv_class);
 
+        tvTitle.setText("Duration : "+alCustom.get(position).getTitles());
+        tvSubject.setText("Distance : "+alCustom.get(position).getSubjects());
+        tvDescription.setText("Calorie Estimate : "+alCustom.get(position).getDescripts());
 
-        tvTitle.setText("Title : "+alCustom.get(position).getTitles());
-        tvSubject.setText("Subject : "+alCustom.get(position).getSubjects());
-        tvDuedate.setText("Due Date : "+alCustom.get(position).getDuedates());
-        tvDescription.setText("Description : "+alCustom.get(position).getDescripts());
+//        tvDuedate.setText("Calories : "+alCustom.get(position).getDuedates());
 
         return  listViewItem;
     }
